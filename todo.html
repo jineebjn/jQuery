@@ -1,0 +1,58 @@
+<!-- Create a todo list with the following functionality.- a user should be able to add any number of todos- a user should be able to delete any todo item- a user should be able to mark any todo item as completeThe bottom of the todo list should show the following:-- the count of total todo items- the count of completed todo items- the count of pending todo items -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#someText').keypress(function(event){
+				var keycode = (event.keyCode ? event.keyCode : event.which);
+				var valuein = $("#someText").val();
+				if(keycode == '13'){
+					$("ul.listing").append('<li class="'+valuein+'">'+'<input type="checkbox">'+'<label class="dash">'+valuein+'</label>'+'<button del-id="'+valuein+'" class="close-btn">'+'X'+'</button>'+'<br>'+'</li>'); 
+					$('input[type="checkbox"]').click(function(){
+						if($(this).prop("checked") == true){
+							$(this).next().css({"text-decoration":"line-through"});
+						}
+						else if($(this).prop("checked") == false){
+							$(this).next().css({"text-decoration":"none"});
+						}
+					});
+					$(".close-btn").click(function(){
+						$(this).parent().remove();
+					});
+					$(".completed").click(function(){
+						$('input:checked').parent().remove();
+					});
+				}
+			});
+		});
+	</script>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<div>
+		<input id="someText" type="text" name="" placeholder="What needs to be done?">
+
+		<!-- <div class="view"><input class="toggle" type="checkbox"><label></label><button class="destroy">X</button></div> -->
+		<div class="view1">
+			<ul class="listing"></ul>
+		</div>
+		<ul class="filters">
+			<li>
+				<button class="all">All</button>
+			</li>
+			<li>
+				<button class="active">Active</button>
+			</li>
+			<li>
+				<button class="completed">Completed</button>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

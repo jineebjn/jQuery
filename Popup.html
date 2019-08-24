@@ -1,0 +1,111 @@
+<!-- popup -->
+<!-- Create an html file with a form that includes a button. Show a pop up when a button is clicked.' -->
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="popup_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#display_popup").click(function(){
+				showpopup();
+			});
+			$("#cancel_button").click(function(){
+				hidepopup();
+			});
+			$("#close_button").click(function(){
+				hidepopup();
+			});
+		});
+
+
+		function showpopup()
+		{
+			$("#popup_box").fadeToggle();
+			$("#popup_box").css({"visibility":"visible","display":"block"});
+		}
+
+		function hidepopup()
+		{
+			$("#popup_box").fadeToggle();
+			$("#popup_box").css({"visibility":"hidden","display":"none"});
+		}
+	</script>
+	<style type="text/css">
+		#display_popup
+		{
+			font-size:20px;
+			cursor:pointer;
+		}
+		#popup_box
+		{
+			visibility:hidden;
+			display:none;
+			width:30%;
+			background-color:#BDBDBD;
+			position:fixed;
+			left:35%;
+			top:30%;
+			border-radius:10px;
+			border:2px solid grey;
+			box-shadow:0px 0px 10px 0px grey;
+			font-family:helvetica;
+		}
+		#popup_box #cancel_button
+		{
+			float:right;
+			margin-top:4px;
+			margin-bottom:4px;
+			margin-right:5px;
+			background-color:grey;
+			border:none;
+			color:white;
+			padding:5px;
+			border-radius:1000px;
+			width:25px;
+			border:1px solid #424242;
+			box-shadow:0px 0px 10px 0px grey;
+			cursor:pointer;
+		}
+		#popup_box #info_text
+		{
+			padding:10px;
+			clear:both;
+			background-color:white;
+			color:#6E6E6E;
+		}
+		#popup_box #close_button
+		{
+			margin:0px;
+			padding:0px;
+			width:70px;
+			height:30px;
+			line-height:30px;
+			font-size:16px;
+			background-color:grey;
+			color:white;
+			border:none;
+			margin-bottom:10px;
+			border-radius:2px;
+			cursor:pointer;
+		}
+	</style>
+</head>
+
+<body>
+
+	<center>
+		<form>
+			<input type="text" name="username" placeholder="username" ><br>
+			<input type="password" name="password" placeholder="password"><br>
+			<input type="button" id="display_popup" value="Display Popup">
+			<input type="button" name="login" value="login">
+		</form>
+		<div id="popup_box">
+			<input type="button" id="cancel_button" value="X">
+			<p id="info_text">This is a Demo of Custom Popup Box using jQuery.
+			</p><input type="button" id="close_button" value="Close">
+		</div>
+	</center>
+
+</body>
+</html>

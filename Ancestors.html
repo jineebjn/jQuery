@@ -1,0 +1,69 @@
+
+<!-- ancestors -->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.ancestors * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("span").parent().css({"color": "red", "border": "2px solid red"});
+  $(".a").parents().css({"color": "green", "border": "2px solid green"});
+  $(".b").parents("ul").css({"color": "blue", "border": "2px solid blue"});
+});
+</script>
+</head>
+<body>
+<h1>parent()</h1>
+
+<div class="ancestors">
+  <div style="width:500px;">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+    </ul>   
+  </div>
+
+  <div style="width:500px;">div (grandparent)   
+    <p>p (direct parent)
+      <span>span</span>
+    </p> 
+  </div>
+</div>
+
+<br><br><br><br><br>
+<h1>parents()</h1>
+<div class="ancestors">
+<div style="width:500px;">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span class="a">span</span>
+      </li>
+    </ul>   
+  </div>
+</div>
+<br><br><br><br><br>
+<h1>parents('tag')</h1>
+<div class="ancestors">
+  <div style="width:500px;">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span class="b">span</span>
+      </li>
+    </ul>   
+  </div>
+</div>
+
+
+</body>
+</html>
+

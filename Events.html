@@ -1,0 +1,65 @@
+<!-- events -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("p.a").click(function(){
+				$(this).hide();
+			});
+
+			$("p.b").dblclick(function(){
+				$(this).hide();
+			});
+
+			$("p.c").mouseenter(function(){
+				alert("You entered p.c");
+			});
+
+			$("p.d").mouseleave(function(){
+				alert("Bye! You now leave p.d");
+			});
+			$("p.e").mousedown(function(){
+				alert("Mouse down over p.e!");
+			});
+			$("p.f").mouseup(function(){
+				alert("Mouse down over p.f!");
+			});
+			$("input").focus(function(){
+				$(this).css("background-color", "red");
+			});
+			$("input").blur(function(){
+				$(this).css("background-color", "#ffffff");
+			});
+			$("p.g").on({
+				mouseenter: function(){
+					$(this).css("background-color", "lightgray");
+				},  
+				mouseleave: function(){
+					$(this).css("background-color", "lightblue");
+				}, 
+				click: function(){
+					$(this).css("background-color", "yellow");
+				}  
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<p class="a">If you click on me, I will disappear.</p>
+	<p class="b">If you double click on me, I will disappear.</p>
+	<p class="c"> function is executed when the mouse pointer enters the HTML element</p>
+	<p class="d">The function is executed when the mouse pointer leaves the HTML element</p>
+	<p class="e">This is a paragraph</p>
+	<p class="f">This is a paragraph</p>
+	Name: <input type="text" name="fullname"><br>
+	Email: <input type="text" name="email">
+	<p class="g">This is a paragraph</p>
+
+
+
+</body>
+</html>

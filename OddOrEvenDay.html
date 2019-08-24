@@ -1,0 +1,27 @@
+<!-- Write a program to get the day of the month.If the day is even, print in the html page in GREEN colour "It's an even day"If the day is odd, print in the html page in RED colour "It's an odd day" -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>odd or even day</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("button").click(function(){
+				var d = new Date();
+				var day = d.getDate();
+				if (day % 2 == 0) {
+					$("span").html("Today is an even day").css("color", "green");
+					
+				}
+				else{
+					$("span").html("Today is an odd day");
+				}
+			})
+		});
+	</script>
+</head>
+<body>
+	<h4>To day is <span style=""></span></h4>
+	<button>click</button>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+<!-- Use jQuery to implement auto complete -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Autocomplete</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(document).ready(function(){
+			    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $("#tags").autocomplete({source: availableTags});
+		});
+	</script>
+</head>
+<body>
+<div>
+	<label>Tags</label>
+	<input id="tags">
+</div>
+</body>
+</html>

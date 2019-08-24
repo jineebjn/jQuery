@@ -1,0 +1,45 @@
+<!-- Create an html page with a form.The form should include options to input two numbers and an operation. The operation could be either +, -, / or *Use jQuery to do the calculation and show the output to the user. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#res").click(function(){
+				var a = parseFloat($("#value1").val());
+				var b = parseFloat($("#value2").val());
+				var o = $('#sel option:selected').val();
+				switch (o){
+					case '+' : r=a+b;break;
+					case '-' : r=a-b;break;
+					case '*' : r=a*b;break;
+					case '/' : r=a/b;break;
+					default : r=0;
+				}
+				$("h3").html(r);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<form>
+			<label>value 1</label>
+			<input id="value1" type="number" placeholder="1" value="">
+			<select id="sel">
+				<option>+</option>
+				<option>-</option>
+				<option>/</option>
+				<option>*</option>
+			</select>
+			<br>
+			<label>value 2</label>
+			<input id="value2" type="number" placeholder="2" value=""><br>
+			<input id="res" type="button" value="result">
+			<h3></h3>
+			
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!-- Write a HTML form with the following fields - name, email, password, confirm passwordWhen the form is post, validate the form for the following- Name should be at least 3 characters in length- Password should be atleast 8 characters in length- Password and confirm password need to match- Email should be in a valid email format- None of the fields can be emptyIn case of error, show a red border around the element and also show an error message at the top of the form. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>validation</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			$("#validate").click(function(){
+				var nme = $('#nme').val();
+				var eml = $('#eml').val();
+				var pswd = $('#pswd').val();
+				var cfm = $('#cfm').val();
+				if (nme == '') {
+					$("p").html("Please enter name");
+					$('#nme').focus().css("border-color","red");
+				}
+				else if (nme.length < 3) {
+					$("p").html("Name should have atleast 3 characters.");
+					$('#nme').focus();
+				}
+				else if (eml.length == 0) {
+					$("p").html("Enter an Email");
+					$('#nme').focus().css("border-color","red");
+				}
+				else if(eml.indexOf("@") < 1 || (email.indexOf(".")-eml.indexOf("@")) < 2)
+				{
+					$("p").html('Please enter a valid Email Id');
+					$('#eml').focus();
+				}
+				else if (pswd.length < 8) {
+					$("p").html("Password should have atleast 8 characters.");
+					$('#pswd').focus();
+				}
+				else if (pswd != cfm) {
+					$("p").html("Password doesn't match.");
+					$('#cfm').focus();
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<form>
+		<p style="color: red;"></p>
+		First name:<br>
+		<input id="nme" type="text" name="name" value="">
+		<br>
+		Email:<br>
+		<input id="eml" type="email" name="email" value="">
+		<br>
+		Password:<br>
+		<input id="pswd" type="password" name="password">
+		<br>
+		Confirm Password:<br>
+		<input id="cfm" type="password" name="confirm">
+		<br><br>
+		<input id="validate" type="submit" value="Submit">
+	</form> 
+</body>
+</html>

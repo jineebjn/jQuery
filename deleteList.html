@@ -1,0 +1,104 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="popup_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".display_popup").click(function(){
+				var del = $(this).attr("user-id");
+				$("#popup_box").fadeToggle().css({"visibility":"visible","display":"block"});
+				$("#confirm").click(function(){
+					$(this).attr("href","fb.com/"+del);
+				});
+			});
+			$("#cancel_button").click(function(){
+				hidepopup();
+			});
+		});
+		function hidepopup()
+		{
+			$("#popup_box").fadeToggle();
+			$("#popup_box").css({"visibility":"hidden","display":"none"});
+		}
+	</script>
+	<style type="text/css">
+		#display_popup
+		{
+			font-size:20px;
+			cursor:pointer;
+		}
+		#popup_box
+		{
+			visibility:hidden;
+			display:none;
+			width:30%;
+			background-color:#BDBDBD;
+			position:fixed;
+			left:35%;
+			top:30%;
+			border-radius:10px;
+			border:2px solid grey;
+			box-shadow:0px 0px 10px 0px grey;
+			font-family:helvetica;
+		}
+		#popup_box #cancel_button
+		{
+			float:right;
+			margin-top:4px;
+			margin-bottom:4px;
+			margin-right:5px;
+			background-color:grey;
+			border:none;
+			color:white;
+			padding:5px;
+			border-radius:1000px;
+			width:25px;
+			border:1px solid #424242;
+			box-shadow:0px 0px 10px 0px grey;
+			cursor:pointer;
+		}
+		#popup_box #info_text
+		{
+			padding:10px;
+			clear:both;
+			background-color:white;
+			color:#6E6E6E;
+		}
+		#popup_box #close_button
+		{
+			margin:0px;
+			padding:0px;
+			width:70px;
+			height:30px;
+			line-height:30px;
+			font-size:16px;
+			background-color:grey;
+			color:white;
+			border:none;
+			margin-bottom:10px;
+			border-radius:2px;
+			cursor:pointer;
+		}
+	</style>
+</head>
+
+<body>
+
+	<center>
+		<ul>
+			<li>a  <a user-id="a"  class="display_popup">x</a></li>
+			<li>b  <a user-id="b"  class="display_popup">x</a></li>
+			<li>c  <a user-id="c"  class="display_popup">x</a></li>
+			<li>d  <a user-id="d"  class="display_popup">x</a></li>
+			<li>e  <a user-id="e"  class="display_popup">x</a></li>
+			<li>f  <a user-id="f"  class="display_popup">x</a></li>
+		</ul>
+		<div id="popup_box">
+			<input type="button" id="cancel_button" value="X">
+			<p id="info_text">Do you want to delete ?
+			</p><a role="button" id="confirm">Confirm</a>
+		</div>
+	</center>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!-- redirect -->
+<!-- Create an html page with the following code< a href="http://www.example.com">Eample Website
+Ideally, clicking this link should take the user to the example.com website.However, I want you to use jQuery to redirect the user to http://www.facebook.com when the button is clicked.Note: DO NOT change the html code via jQuery -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>redirect</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready( function() {
+      $("a").click(function(){
+      	$("a").attr("href","https://www.facebook.com");
+      });
+   });
+	</script>
+</head>
+<body>
+	<br><br><br>
+	<a href="http://www.example.com">example.com</a>
+</body>
+</html>
